@@ -41,6 +41,12 @@ public class Cliente {
 			Scanner miScanner = new Scanner(System.in);
 			String opcion = miScanner.nextLine();
 			
+			long tiempoIni = 0;
+			long tiempoFin = 0;
+			long duracionNano = 0;
+			long duracionMili = 0;
+			
+			
 			switch (opcion) {
 				case "1" :
 					System.out.println();
@@ -106,9 +112,24 @@ public class Cliente {
 							e.printStackTrace();
 						}
 					}
-					//Puerto por defecto 15236					
+					
+					//Asigno tiempo de inicio para calcular tiempo entre inicio y fin de proceso
+					tiempoIni = System.nanoTime();
+					
+					//Puerto por defecto 15236		
 					CalcularAleatorio aleatorio = new CalcularAleatorio(15236, cotaSuperior, decimales, negativos);
 					aleatorio.calculo();
+					
+					//Asigno tiempo de fin de ejecución para calcular el tiempo tardado
+					tiempoFin = System.nanoTime();
+					
+					//Duracion en nanosegundos. Dividir por 1000000 para obtener milisegundos
+					//Dividir por 1000000000 para obtener segundos
+					duracionNano = tiempoFin - tiempoIni;
+					duracionMili = duracionNano /1000000;
+					System.out.println();
+					System.out.println("El proceso tardó: " + duracionMili + " milisegundos");
+					
 					System.out.println();
 					System.out.println("Presione Enter para volver al menu");
 					System.out.println(miScanner.nextLine());
@@ -137,9 +158,25 @@ public class Cliente {
 							System.out.println();
 						}						
 					}
+					
+					//Asigno tiempo de inicio para calcular tiempo entre inicio y fin de proceso
+					tiempoIni = System.nanoTime();					
+					
 					//Puerto por defecto 15236
 					CalcularPi pi = new CalcularPi(15236, decimalesPi);
 					pi.calculo();	
+					
+					//Asigno tiempo de fin de ejecución para calcular el tiempo tardado
+					tiempoFin = System.nanoTime();
+					
+					//Duracion en nanosegundos. Dividir por 1000000 para obtener milisegundos
+					//Dividir por 1000000000 para obtener segundos
+					duracionNano = tiempoFin - tiempoIni;
+					duracionMili = duracionNano /1000000;
+					
+					System.out.println();
+					System.out.println("El proceso tardó: " + duracionMili + " milisegundos");
+					
 					System.out.println();
 					System.out.println("Presione Enter para volver al menu");
 					System.out.println(miScanner.nextLine());
