@@ -12,6 +12,10 @@ Trabajos prácticos de Sistemas Distribuidos
 
 # Pasos para la ejecución de los ejercicios
 
+# Punto 1 al 4
+1. Correr la clase Servidor.java
+2. Correr la clase Cliente.java
+
 # Punto 5
 1. Correr la clase ServerMain.java
 2. Correr la clase Cliente.java
