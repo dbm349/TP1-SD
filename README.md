@@ -1,25 +1,25 @@
 # TPS-SD
 Trabajos prácticos de Sistemas Distribuidos
 
-##Pasos para importar el proyecto 
+#Pasos para importar el proyecto 
 
-##1. 
+#1. 
 Ingresar al repositorio de Github con el link dado y descargar archivo .zip
 
-##2. 
+#2. 
 Descomprimir el archivo recientemente descargado.
 
-##3.
+#3.
 Importar el proyecto en eclipse.(File> Import> Maven> Existing Maven Projects> Next> Browse> Practico1> Finish).
 
 
-##Pasos para la ejecución de los ejercicios
+#Pasos para la ejecución de los ejercicios
 
 #Punto 5
 1. Correr la clase ServerMain.java
 2. Correr la clase Cliente.java
 
-##Punto 6
+#Punto 6
 1. Correr la clase ServerMain.java
 2. Correr la clase Cliente.java
 
