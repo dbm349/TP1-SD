@@ -3,14 +3,11 @@ Trabajos prácticos de Sistemas Distribuidos
 
 # Pasos para importar el proyecto 
 
-# 1. 
-Ingresar al repositorio de Github con el link dado y descargar archivo .zip
+1. Ingresar al repositorio de Github con el link dado y descargar archivo .zip
 
-# 2. 
-Descomprimir el archivo recientemente descargado.
+2. Descomprimir el archivo recientemente descargado.
 
-# 3.
-Importar el proyecto en eclipse.(File> Import> Maven> Existing Maven Projects> Next> Browse> Practico1> Finish).
+3. Importar el proyecto en eclipse.(File> Import> Maven> Existing Maven Projects> Next> Browse> Practico1> Finish).
 
 
 # Pasos para la ejecución de los ejercicios
