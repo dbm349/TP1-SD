@@ -27,8 +27,8 @@ Trabajos prácticos de Sistemas Distribuidos
 Aclaración: El error,(vector2 es inicializado en 0), se encuentra introducido en el código de ambas operaciones(suma y resta).
 
 # Punto 7
-1. Correr la clase ServerMain.java
-2. Correr la clase Cliente.java
+1. Correr la clase ServerMain.java del paquete ejercicio7_server
+2. Correr la clase Cliente.java del paquete ejercicio7_cliente
 
 
 # Conclusiones
