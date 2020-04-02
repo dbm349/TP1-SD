@@ -29,3 +29,9 @@ Aclaración: El error,(vector2 es inicializado en 0), se encuentra introducido e
 Los parámetros en RMI siempre se pasan por valor debido a que el objeto posiblemente no este en el mismo espacio de memoria,
 por lo que al inicializar el vecto2 en 0, estamos modificando el objeto copia que se encuentra en el servidor.
 Por último podemos observar que el vector2 en el cliente no se vio modificado por el error introducido.
+
+# Algunas conclusiones
+
+Punto 1. Se pudo enviar el mensaje desde el cliente hacia el servidor, y se obtuvo una respuesta con ese mismo mensaje aclarando quien lo envía. Cabe mencionar que el Servidor no puede aceptar la petición de mas de un cliente al mismo tiempo.
+
+Punto 2. Mediante la creacion de un hilo para cada Cliente, el Servidor pudo atendes varios Clientes a la vez
