@@ -1,5 +1,5 @@
-# TPS-SD
-Trabajos prácticos de Sistemas Distribuidos
+# TP1-SD
+Trabajo práctico de Sistemas Distribuidos
 
 # Pasos para importar el proyecto 
 
