@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Servidor {
@@ -41,14 +42,18 @@ public class Servidor {
 				cs.close();
 				System.out.println("Conexion con el cliente cerrada.");
 				
-				int opc;
+				int opc = 0;
 				
 				do{
-				System.out.println("Ingrese opcion ");
-				System.out.println("1- Seguir escuchando.");
-				System.out.println("2- Salir");
-				Scanner scan = new Scanner(System.in);
-				opc = scan.nextInt();
+				try {
+					System.out.println("Ingrese opcion ");
+					System.out.println("1- Seguir escuchando.");
+					System.out.println("2- Salir");
+					Scanner scan = new Scanner(System.in);
+					opc = scan.nextInt();	
+				}catch (InputMismatchException ex) {
+		            System.out.println("Error!");
+		        }
 					switch (opc) {
 					case 1:
 						break;
@@ -57,7 +62,7 @@ public class Servidor {
 						System.out.println("Servidor finalizado");
 						break;
 					default:
-						System.out.println("Ingrese una opcion valida");
+						System.out.println("Debe ingresar una opcion valida");
 						break;
 					}
 				}while ((opc!=1)&&(opc!=2));

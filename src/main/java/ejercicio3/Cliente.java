@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.net.*;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cliente {
@@ -37,10 +38,25 @@ public class Cliente {
 	
 	
 	public static void EnviarMensaje(Cliente cliente) throws IOException{
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Ingresar ID de destino");
-		int DestinoID = scanner.nextInt();
+
 		
+		boolean IDValidate = false;
+		String ID = "";
+		int destinoID = 0;
+		while(!IDValidate) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Ingresar ID de destino");
+			ID = scan.nextLine();
+			try {
+				destinoID = Integer.parseInt(ID);
+				IDValidate = true;
+			} catch (Exception e) {
+				System.out.println("Ingrese un numero ID valido");
+				System.out.println("");
+			}
+		}
+		
+		Scanner scan = new Scanner(System.in);
 		System.out.println("Ingrese el mensaje: ");
 		String mensaje = scan.nextLine();
 	
@@ -48,7 +64,7 @@ public class Cliente {
 			System.err.println("Debe ingresar un mensaje.");
 		}else{
 			cliente.Escribir("SEND");
-			cliente.Escribir(DestinoID, mensaje);
+			cliente.Escribir(destinoID, mensaje);
 			System.out.println("Mensaje Enviado");
 		}
 	}
@@ -76,23 +92,41 @@ public class Cliente {
 	
 
 	public static void main(String[] args) throws UnknownHostException, IOException{
-		System.out.print("Ingrese el ID del nuevo cliente -> ");
-		while ((!scanner.hasNextInt())) {
-			scanner.next();
+
+		
+		int c = 0;
+		boolean IDClientValidate = false;
+		String ID = "";
+		
+		while(!IDClientValidate) {
+			Scanner scan = new Scanner(System.in);
+			System.out.print("Ingrese el ID del nuevo cliente -> ");
+			ID = scan.nextLine();
+			try {
+				c = Integer.parseInt(ID);
+				IDClientValidate = true;
+			} catch (Exception e) {
+				System.out.println("Ingrese un numero ID valido");
+				System.out.println("");
+			}
 		}
-		int c = scanner.nextInt();
+		
 		Cliente cliente = new Cliente(c,clienteIP,puerto);
 		
 		int opc = 0;
 		while(opc!=3) {
-			System.out.println();
-			System.out.println("Bandeja del Cliente ID: " + cliente.clienteID);
-			System.out.println("1- Enviar un mensaje a un cliente.");
-			System.out.println("2- Leer mensajes");
-			System.out.println("3- Salir.");
-			System.out.println();
-			opc = scanner.nextInt();
-			
+			try {
+				Scanner scan = new Scanner(System.in);
+				System.out.println();
+				System.out.println("Bandeja del Cliente ID: " + cliente.clienteID);
+				System.out.println("1- Enviar un mensaje a un cliente.");
+				System.out.println("2- Leer mensajes");
+				System.out.println("3- Salir.");
+				System.out.println();
+				opc = scan.nextInt();
+			}catch (InputMismatchException ex) {
+				System.out.println("Error!");
+			}
 			if (opc==1) {
 				cliente.EnviarMensaje(cliente);
 			}else if (opc==2){

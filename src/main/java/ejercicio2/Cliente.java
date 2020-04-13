@@ -25,21 +25,41 @@ public class Cliente {
 				if (IP.equals("localhost")) {
 					esIP=true;
 				}else{
-					String [] numerosIP = IP.split(".");
+					String [] numerosIP = IP.split("\\.");
 					if (numerosIP.length==4) {
 						esIP=true;
+						for(String S:numerosIP) {
+							if(Integer.parseInt(S)>255 || Integer.parseInt(S)<0) {
+								esIP=false;
+							}
+						}
+						if(!esIP) {
+							System.out.println("La direccion IP ingresada no es valida");
+						}
 					}else {
 						System.out.println("La direccion ingresada no es una IP");
 					}
 				}		
 		}
-		scanner = new Scanner(System.in);
-		System.out.println("Ingrese puerto");
-		int port = scanner.nextInt();
-	
 		
+		
+		boolean portValidate = false;
+		String port = "";
+		int numPuerto = 0;
+		while(!portValidate) {
+			scanner = new Scanner(System.in);
+			System.out.println("Ingrese puerto");//9000 para este ejemplo
+			port = scanner.nextLine();
+			try {
+				numPuerto = Integer.parseInt(port);
+				portValidate = true;
+			} catch (Exception e) {
+				System.out.println("Ingrese un numero de puerto valido");
+			}
+		}
+			
 		try {
-			Socket cs = new Socket(IP,port);//Establecida la conexion
+			Socket cs = new Socket(IP,numPuerto);//Establecida la conexion
 			int numCli = (int)(Math.random() * 1000) + 1; //Genero un identificador random de cliente para el ejemplo
 			BufferedReader inFromServer = new BufferedReader(new InputStreamReader(cs.getInputStream()));
 			PrintStream outToServer = new PrintStream(cs.getOutputStream());
